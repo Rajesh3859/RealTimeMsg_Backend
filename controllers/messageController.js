@@ -8,23 +8,29 @@ const sendMessage = async (req, res) => {
       .status(400)
       .json({ message: "Message and Chat ID are required" });
   }
+  try {
+    const message = await Message.create({
+      sender: req.user._id,
+      content,
+      chat: chatId,
+    });
 
-  const message = await Message.create({
-    sender: req.user._id,
-    content,
-    chat: chatId,
-  });
+  
+    message = await message.populate("sender", "name email");
+    message = await message.populate("chat");
 
-  await Chat.findByIdAndUpdate(chatId, { latestMessage: message._id });
-
-  res.json(message);
-};
+    await Chat.findByIdAndUpdate(chatId, { latestMessage: message._id });
+    res.json(message);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to send message", error });
+  }
+}
 
 const fetchMessages = async (req, res) => {
   const messages = await Message.find({ chat: req.params.chatId }).populate(
     "sender",
     "name profilePic"
-  );
+  ).populate("chat");
   res.json(messages);
 };
 
