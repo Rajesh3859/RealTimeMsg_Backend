@@ -44,8 +44,8 @@ real-time-chat-backend/
 │   ├── chatRoutes.js
 │   └── messageRoutes.js
 ├── .env
-├── server.js               // Main entry point
-└── package.json
+├── package.json               // Main entry point
+└── server.js 
 ```
 
 ---
@@ -54,7 +54,8 @@ real-time-chat-backend/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/real-time-chat-backend.git
+git clone https://github.com/Rajesh3859/real-time-chat-backend.git
+
 cd real-time-chat-backend
 ```
 
@@ -65,11 +66,10 @@ npm install
 
 3. **Setup `.env` file**
 ```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_password
+
+PORT=3000
+MONGO_URI="mongodb+srv://Realtime_M:hhMjPPJrTn0hxEm5@weddingcluster.ldwao.mongodb.net/?retryWrites=true&w=majority&appName=WeddingCluster"
+JWT_SECRET="HERO_TIME"
 ```
 
 4. **Run the server**
@@ -134,17 +134,15 @@ io.on("connection", (socket) => {
 ## 🌐 Deployment
 
 You can deploy the backend easily on platforms like:
-- [Render](https://render.com)
-- [Railway](https://railway.app/)
-- [Heroku](https://heroku.com)
+- [Render](https://realtimemsg-backend.onrender.com)
 
 ---
 
 ## 👨‍💻 Author
 
-Developed by **[Your Name]**  
-📧 your.email@example.com  
-💼 [LinkedIn](https://linkedin.com/in/yourprofile) | 🐙 [GitHub](https://github.com/your-username)
+Developed by **Rajesh**  
+📧 rajeshvjm10@gmail.com  
+💼 [LinkedIn](https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)| 🐙 [GitHub](https://github.com/Rajesh3859)
 
 ---
 
