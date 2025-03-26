@@ -24,7 +24,7 @@ app.use("/api/message", messageRoutes);
 const server = http.createServer(app);
 
 // Setup Socket.io
-const io = new Server(server, {
+const io = require("socket.io")(server, {
   cors: { origin: "*" },
 });
 

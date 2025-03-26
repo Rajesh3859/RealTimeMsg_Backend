@@ -41,4 +41,15 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.user.id } }).select(
+      "-password"
+    );
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+module.exports = { registerUser, loginUser , getUsers};

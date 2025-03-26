@@ -35,4 +35,4 @@ const fetchChats = async (req, res) => {
   res.json(chats);
 };
 
-module.exports = { accessChat, fetchChats };
+module.exports = { accessChat, fetchChats, };
