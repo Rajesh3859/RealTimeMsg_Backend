@@ -1,12 +1,15 @@
 const express = require("express");
-const { registerUser, loginUser } = require("../controllers/userController");
+const { registerUser, loginUser, getUsers } = require("../controllers/userController");
+const {
+ accessChat
+} = require("../controllers/chatController");
 const { protect, authorizeRoles } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get("/users", authMiddleware, getUsers);
-router.post("/access", authMiddleware, accessChat);
+router.get("/users", getUsers);
+router.post("/access", accessChat);
 router.get("/admin/data", protect, authorizeRoles("admin"), (req, res) => {
   res.json({ message: "Admin-only data accessed!" });
 });
